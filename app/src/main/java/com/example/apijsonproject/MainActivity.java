@@ -35,9 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         ApiInretface apiService = ApiClient.getClient().create(ApiInretface.class);
         Log.i("deezerId", "beforeCall");
-        Call<DeezerResponse> call = apiService.getTrackByName("0e2ab71894mshdc79f98d5127b9cp19cdc3jsnc739053375aa",
-                "deezerdevs-deezer.p.rapidapi.com",
-                "eminem");//, ApiClient.APY_KEY);
+        Call<DeezerResponse> call = apiService.getTrackByName(ApiClient.APY_KEY,ApiClient.BASE_HOST,"eminem");
         Log.i("deezerId", "afterCall");
         call.enqueue(new Callback<DeezerResponse>() {
             @Override

@@ -14,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     public static final String BASE_URL = "https://deezerdevs-deezer.p.rapidapi.com";
+    public static final String BASE_HOST= "deezerdevs-deezer.p.rapidapi.com";
     public static final String APY_KEY = "0e2ab71894mshdc79f98d5127b9cp19cdc3jsnc739053375aa";
     private static Retrofit retrofit = null;
 

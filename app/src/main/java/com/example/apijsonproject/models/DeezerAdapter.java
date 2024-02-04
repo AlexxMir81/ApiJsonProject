@@ -1,6 +1,7 @@
 package com.example.apijsonproject.models;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.annotation.GlideModule;
 import com.example.apijsonproject.R;
 
 import java.util.List;
@@ -20,7 +22,7 @@ public class DeezerAdapter extends RecyclerView.Adapter<DeezerAdapter.DeezerView
     private int templateLayout;
     private Context context;
 
-    public DeezerAdapter(List<Datum> tracks, int templateLayout, Context context) {
+    public DeezerAdapter(Context context, int templateLayout, List<Datum> tracks) {
         this.tracks = tracks;
         this.templateLayout = templateLayout;
         this.context = context;
@@ -36,14 +38,14 @@ public class DeezerAdapter extends RecyclerView.Adapter<DeezerAdapter.DeezerView
     @Override
     public void onBindViewHolder(@NonNull DeezerViewHolder holder, int position) {
         holder.title.setText(this.tracks.get(position).title);
-        holder.duration.setText(this.tracks.get(position).duration);
+        holder.duration.setText((float)Math.round((Float.parseFloat(this.tracks.get(position).duration)/60)*100)/100+" min.");
         holder.artist.setText(this.tracks.get(position).artist.name);
-        Glide.with(context).load(this.tracks.get(position).md5_image).into(holder.artistImage);
+        Glide.with(context).load( "https://e-cdns-images.dzcdn.net/images/cover/"+this.tracks.get(position).md5_image+"/500x500-000000-80-0-0.jpg").into(holder.artistImage);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return tracks.size();
     }
 
     public static class DeezerViewHolder extends RecyclerView.ViewHolder{

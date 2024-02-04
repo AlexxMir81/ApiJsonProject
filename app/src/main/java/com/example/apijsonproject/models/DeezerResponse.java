@@ -6,14 +6,14 @@ import java.util.ArrayList;
 public class DeezerResponse implements Serializable
 {
     public ArrayList<Datum> data;
-    public int total;
+    public String total;
     public String next;
 
     public ArrayList<Datum> getData() {
         return data;
     }
 
-    public int getTotal() {
+    public String getTotal() {
         return total;
     }
 
@@ -25,7 +25,7 @@ public class DeezerResponse implements Serializable
         this.data = data;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(String total) {
         this.total = total;
     }
 
@@ -33,7 +33,7 @@ public class DeezerResponse implements Serializable
         this.next = next;
     }
 
-    public DeezerResponse(ArrayList<Datum> data, int total, String next) {
+    public DeezerResponse(ArrayList<Datum> data, String total, String next) {
         this.data = data;
         this.total = total;
         this.next = next;

@@ -13,4 +13,5 @@ public class Album implements Serializable {
         public String md5_image ;
         public String tracklist ;
         public String type ;
+
 }
